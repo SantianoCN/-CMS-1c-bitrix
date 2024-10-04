@@ -11,12 +11,14 @@ $CurUri = $APPLICATION->GetCurUri();
     use Bitrix\Main\UI\Extension;
 
     Extension::load('ui.bootstrap4');
+    // CSS;
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/bootstrap.min.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/js/fancy/jquery.fancybox.min.css');
     // JS
     CJSCore::Init(array("jquery3"));
+    
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/fancy/jquery.fancybox.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/myscripts.min.js');
-    // CSS;
-    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/js/fancy/jquery.fancybox.min.css');
     // HEADERS
     $APPLICATION->ShowHead();
     ?>
