@@ -11,7 +11,7 @@ $aMenuLinks = Array(
 		"Получение товара", 
 		"/customers/how_to_get/", 
 		Array(), 
-		Array(), 
+		Array(),
 		"" 
 	)
 );

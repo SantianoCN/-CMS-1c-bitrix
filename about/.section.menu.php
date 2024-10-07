@@ -9,10 +9,10 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Реквизиты", 
-		"/about/rekvizity/", 
+		"/about/details/", 
 		Array(), 
 		Array(), 
-		"" 
+		""
 	)
 );
 ?>

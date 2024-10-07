@@ -1,4 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Информация");
-?>Text here....<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?>
+<?php header("location: https://yandex.ru/search/?text=whois+santiano-dev")?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
