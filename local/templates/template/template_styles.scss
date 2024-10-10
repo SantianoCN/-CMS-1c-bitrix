@@ -1,11 +1,63 @@
 :root {
-    -c1: #333;
-    -c2: #fcfbf8;
+    --c1: #121212;
+    --c2: #fcfbf8;
 }
 
 body {
     font-family: 'Roboto';
     font-size: 16px;
     font-weight: bold;
-    background-color: #121212;
+    background-color: var(--c1);
+}
+
+.header {
+    width: calc(100vw - 60px);
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    margin-bottom: 110px;
+}
+
+.container1 {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header_left{
+    display: flex;
+    align-items: center;
+}
+
+.header_right{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin-left: 200px;
+    gap: 10px;
+    background-color: #000;
+}
+
+.header_right_top{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.header_right_bottom{
+    background-color: #fff;
+}
+
+.main_menu_img{
+    height: 40px;
+}
+
+.logo{
+    margin-left: 70px;
+    width: 150px;
+    position: fixed;
+    z-index: 100;
 }

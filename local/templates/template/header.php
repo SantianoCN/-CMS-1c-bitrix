@@ -13,7 +13,9 @@ $CurUri = $APPLICATION->GetCurUri();
     Extension::load('ui.bootstrap4');
     // CSS;
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/bootstrap.min.css');
+    Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/template_styles.scss');
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/js/fancy/jquery.fancybox.min.css');
+    
     // JS
     CJSCore::Init(array("jquery3"));
     
@@ -45,13 +47,103 @@ $CurUri = $APPLICATION->GetCurUri();
 <body>
 <?$APPLICATION->ShowPanel();?>
 
-<?$APPLICATION->IncludeComponent(
+
+
+<a href="/">
+	<img class="logo" src="<?=SITE_TEMPLATE_PATH?>/img/WebLogo2.png" alt="Главная">
+</a>
+
+<div class="header">
+	<div class="container1">
+		<div class="header_left">
+		<?$APPLICATION->IncludeComponent("bitrix:menu", "top_header_aside_menu", Array(
+			"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+				"CHILD_MENU_TYPE" => "section",	// Тип меню для остальных уровней
+				"DELAY" => "N",	// Откладывать выполнение шаблона меню
+				"MAX_LEVEL" => "2",	// Уровень вложенности меню
+				"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+				"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+				"MENU_CACHE_TYPE" => "A",	// Тип кеширования
+				"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+				"ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
+				"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+				"COMPONENT_TEMPLATE" => "horizontal_multilevel"
+			),
+			false
+		);?>
+		</div>
+		<div class="header_right">
+			<div class="header_right_top">
+				<div class="header_search">
+				<?$APPLICATION->IncludeComponent(
+	"bitrix:search.title", 
+	"top_header_search", 
+	array(
+		"CATEGORY_0" => array(
+			0 => "iblock_catalog",
+			1 => "iblock_content",
+		),
+		"CATEGORY_0_TITLE" => "",
+		"CHECK_DATES" => "N",
+		"CONTAINER_ID" => "title-search",
+		"INPUT_ID" => "title-search-input",
+		"NUM_CATEGORIES" => "1",
+		"ORDER" => "date",
+		"PAGE" => "#SITE_DIR#search/index.php",
+		"SHOW_INPUT" => "Y",
+		"SHOW_OTHERS" => "N",
+		"TOP_COUNT" => "5",
+		"USE_LANGUAGE_GUESS" => "Y",
+		"COMPONENT_TEMPLATE" => "top_header_search",
+		"CATEGORY_0_iblock_catalog" => array(
+			0 => "5",
+		),
+		"CATEGORY_0_iblock_content" => array(
+			0 => "4",
+		)
+	),
+	false
+);?>
+				</div>
+				<div class="heaer_cart">
+				<?$APPLICATION->IncludeComponent(
+					"bitrix:sale.basket.basket.line", 
+					"top_header_basket", 
+					array(
+						"HIDE_ON_BASKET_PAGES" => "N",
+						"PATH_TO_AUTHORIZE" => "",
+						"PATH_TO_BASKET" => "personal/cart/",
+						"PATH_TO_ORDER" => "personal/order/make/",
+						"PATH_TO_PERSONAL" => SITE_DIR."personal/",
+						"PATH_TO_PROFILE" => SITE_DIR."personal/",
+						"PATH_TO_REGISTER" => SITE_DIR."login/",
+						"POSITION_FIXED" => "N",
+						"SHOW_AUTHOR" => "N",
+						"SHOW_EMPTY_VALUES" => "Y",
+						"SHOW_NUM_PRODUCTS" => "Y",
+						"SHOW_PERSONAL_LINK" => "N",
+						"SHOW_PRODUCTS" => "Y",
+						"SHOW_REGISTRATION" => "N",
+						"SHOW_TOTAL_PRICE" => "Y",
+						"COMPONENT_TEMPLATE" => "top_header_basket",
+						"SHOW_DELAY" => "N",
+						"SHOW_NOTAVAIL" => "N",
+						"SHOW_IMAGE" => "Y",
+						"SHOW_PRICE" => "Y",
+						"SHOW_SUMMARY" => "Y"
+					),
+					false
+				);?>
+				</div>
+			</div>
+			<div class="header_right_bottom">
+				<div class="header_catalog_nav">
+				<?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
-	"horizontal_multilevel", 
+	"top_header_catalog_nav", 
 	array(
 		"ALLOW_MULTI_SELECT" => "N",
 		"CHILD_MENU_TYPE" => "section",
-		"COMPONENT_TEMPLATE" => "horizontal_multilevel",
 		"DELAY" => "N",
 		"MAX_LEVEL" => "2",
 		"MENU_CACHE_GET_VARS" => array(
@@ -59,8 +151,14 @@ $CurUri = $APPLICATION->GetCurUri();
 		"MENU_CACHE_TIME" => "3600",
 		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "main",
-		"USE_EXT" => "Y"
+		"ROOT_MENU_TYPE" => "top_catalog",
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "top_header_catalog_nav"
 	),
 	false
 );?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

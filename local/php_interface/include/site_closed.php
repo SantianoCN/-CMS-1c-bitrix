@@ -71,7 +71,7 @@
     <div class="wrap_1">
         <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular',
          'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Santiano's gallery</h1>
-        <img src="local/ico/unavailable.png" alt="unavailable">
+        <img src="<?SITE_TEMPLATE_PATH?>/img/unavailable.png" alt="unavailable">
         <strong style="font-family: 'Lucida Sans', 'Lucida Sans Regular',
          'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
         >Сайт в данный момент находится на техническом обслуживании</strong>
